@@ -1,5 +1,5 @@
 public class Apprenant extends Personne{
-    double note;
+    private double note;
 
     public Apprenant(int id , String nom, String prenom, String email, double note){
         super(nom,prenom,email);
