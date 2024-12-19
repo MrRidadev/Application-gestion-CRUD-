@@ -42,6 +42,7 @@ public class Application {
                         case 1:
                             System.out.println("Ajouter Apprenant.");
                             Apprenant.AjouterApprenant();
+
                             break;
                         case 2:
                             System.out.println("Modifier choisi.");
