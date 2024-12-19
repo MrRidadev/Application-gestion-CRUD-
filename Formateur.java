@@ -20,4 +20,15 @@ public Formateur( int id , String nom, String prenom, String email, String speci
     this.salaire=salaire;
     }
 
+    @Override
+    public String toString() {
+        return "Formateur{" +
+                "specialite='" + specialite + '\'' +
+                ", salaire=" + salaire +
+                ", id=" + id +
+                ", nom='" + nom + '\'' +
+                ", prenom='" + prenom + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
 }
