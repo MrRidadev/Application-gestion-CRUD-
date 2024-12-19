@@ -1,9 +1,11 @@
 public class Apprenant extends Personne{
     private double note;
+    private int telephone;
 
-    public Apprenant(int id , String nom, String prenom, String email, double note){
+    public Apprenant(int id , String nom, String prenom, String email, double note,int telephone){
         super(nom,prenom,email);
         this.note = note;
+        this.telephone = telephone;
 
     }
     public double getNote(){
@@ -13,5 +15,12 @@ public class Apprenant extends Personne{
         this.note=note;
     }
 
+    public int getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(int telephone) {
+        this.telephone = telephone;
+    }
 }
 
