@@ -3,11 +3,19 @@ import java.util.ArrayList;
 public class Apprenant extends Personne{
     private double note;
     private int telephone;
+    Classe classe;
 
     private static ArrayList<Apprenant> apprenants = new ArrayList<>();
 
 
-    public Apprenant( String nom, String prenom, String email, int telephone, double note){
+    public Apprenant(String nom, String prenom, String email, double note, int telephone, Classe classe) {
+        super(nom, prenom, email);
+        this.note = note;
+        this.telephone = telephone;
+        this.classe = classe;
+    }
+
+    public Apprenant(String nom, String prenom, String email, int telephone, double note, Classe classe){
         super(nom,prenom,email);
         this.note = note;
         this.telephone = telephone;
@@ -28,16 +36,25 @@ public class Apprenant extends Personne{
         this.telephone = telephone;
     }
 
+    public Classe getClasse() {
+        return classe;
+    }
+
+    public void setClasse(Classe classe) {
+        this.classe = classe;
+    }
 
     @Override
     public String toString() {
         return "Apprenant{" +
-                "email='" + email + '\'' +
                 ", id=" + id +
                 ", nom='" + nom + '\'' +
                 ", prenom='" + prenom + '\'' +
+                ", email='" + email +
+                "note=" + note +
                 ", telephone=" + telephone +
-                ", note=" + note +
+                ", classe=" + classe +
+                '\'' +
                 '}';
     }
 
@@ -53,8 +70,26 @@ public class Apprenant extends Personne{
         int telephone = sc.nextInt();
         System.out.println("Enter note de apprenant : ");
         double note = sc.nextDouble();
+        sc.nextLine();
+        System.out.println("Enter classe name ");
+        String nomclasse = sc.nextLine();
+        Classe classe = rechrcheClasse(nomclasse);
+//        if(classe==null){
+//            System.out.println("crée b'abord classe");
+//        }
+        Apprenant ap = new Apprenant(nom,prenom,email,note,telephone,classe);
+        apprenants.add(ap);
+        System.out.println();
 
 
+}
+public static Classe rechrcheClasse(String nom){
+        for (Classe classe : Classe.classes){
+            if (classe.getNom().equals(nom)){
+                return classe;
+            }
+        }
+    return null;
 }
 
     static void AffichierApprenant() {
@@ -62,8 +97,12 @@ public class Apprenant extends Personne{
             System.out.println("Aucun apprenant à afficher !");
         } else {
             System.out.println("Liste des apprenants :");
-            for (int i = 0; i < apprenants.size(); i++) {
-                System.out.println((i + 1) + ". " + apprenants.get(i));
+//            for (int i = 0; i < apprenants.size(); i++) {
+//                System.out.println((i + 1) + ". " + apprenants.get(i));
+//            }
+            for(Apprenant ap : apprenants){
+                System.out.println(ap);
+
             }
         }
     }

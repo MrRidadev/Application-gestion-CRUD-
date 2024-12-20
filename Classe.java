@@ -1,7 +1,9 @@
+import java.util.ArrayList;
+
 public class Classe {
     private String nom ;
     private String formateur ;
-
+    public static ArrayList<Classe> classes = new ArrayList<>();
     public String getNom() {
         return nom;
     }
