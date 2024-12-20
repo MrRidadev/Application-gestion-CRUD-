@@ -2,21 +2,22 @@ import java.util.Scanner;
 import java.util.ArrayList;
 public class Apprenant extends Personne{
     private double note;
+    private static int id;
     private int telephone;
     Classe classe;
-
+    static  Scanner sc = new Scanner(System.in);
     private static ArrayList<Apprenant> apprenants = new ArrayList<>();
 
 
-    public Apprenant(String nom, String prenom, String email, double note, int telephone, Classe classe) {
-        super(nom, prenom, email);
+    public Apprenant(int id,String nom, String prenom, String email, double note, int telephone, Classe classe) {
+        super(id,nom, prenom, email);
         this.note = note;
         this.telephone = telephone;
         this.classe = classe;
     }
 
-    public Apprenant(String nom, String prenom, String email, int telephone, double note, Classe classe){
-        super(nom,prenom,email);
+    public Apprenant(int id,String nom, String prenom, String email, int telephone, double note, Classe classe){
+        super(id,nom,prenom,email);
         this.note = note;
         this.telephone = telephone;
 
@@ -44,10 +45,20 @@ public class Apprenant extends Personne{
         this.classe = classe;
     }
 
+    public  int getId() {
+        return id;
+    }
+
+
+
+    public  void setId(int id) {
+        Apprenant.id = id;
+    }
+
     @Override
     public String toString() {
         return "Apprenant{" +
-                ", id=" + id +
+                "id=" + id +
                 ", nom='" + nom + '\'' +
                 ", prenom='" + prenom + '\'' +
                 ", email='" + email +
@@ -59,6 +70,7 @@ public class Apprenant extends Personne{
     }
 
     static void AjouterApprenant(){
+        id = apprenants.size()+1;
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter nom de apprenant : ");
         String nom = sc.nextLine();
@@ -77,9 +89,10 @@ public class Apprenant extends Personne{
 //        if(classe==null){
 //            System.out.println("crée b'abord classe");
 //        }
-        Apprenant ap = new Apprenant(nom,prenom,email,note,telephone,classe);
+        Apprenant ap = new Apprenant(id,nom,prenom,email,note,telephone,classe);
         apprenants.add(ap);
         System.out.println();
+
 
 
 }
@@ -106,9 +119,45 @@ public static Classe rechrcheClasse(String nom){
             }
         }
     }
-static void ModifierApprenant(){
+public static Apprenant rechercheId(int idrecherrche){
 
+        for(Apprenant apprenant : apprenants){
+            if(apprenant.getId()==idrecherrche){
+                return apprenant;
+            }
+
+
+        }
+    return null;
 }
+    public static   void ModifierApprenant() {
+        System.out.print("ID de l'apprenant à modifier: ");
+        int id = sc.nextInt();
+        sc.nextLine();
+        for (Apprenant apprenant : apprenants) {
+            if (apprenant.getId() == id) {
+                System.out.print("Nouveau Nom: ");
+                apprenant.setNom(sc.nextLine());
+                System.out.print("Nouveau Prénom: ");
+                apprenant.setPrenom(sc.nextLine());
+                System.out.print("Nouvel Email: ");
+                apprenant.setEmail(sc.nextLine());
+                
+                System.out.print("Nouvelle Classe: ");
+                String classenom = sc.nextLine();
+                Classe classe = rechrcheClasse(classenom);
+//                if (classe == null) {
+//                    System.out.println("Classe introuvable !");
+//                    return;
+//                }
+                apprenant.setClasse(classe);
+                System.out.println("Apprenant modifié !");
+                return;
+            }
+        }
+        System.out.println("Apprenant introuvable !");
+    }
+
 static void SuprimierApprenant(){
 
 }

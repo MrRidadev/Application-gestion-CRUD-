@@ -5,7 +5,7 @@ public class Formateur extends Personne {
     private double salaire;
 
 public Formateur( int id , String nom, String prenom, String email, String specialite,double salaire){
-    super(nom, prenom, email);
+    super(id,nom, prenom, email);
     this.specialite = specialite;
     this.salaire = salaire;
 }
@@ -25,12 +25,13 @@ public Formateur( int id , String nom, String prenom, String email, String speci
     @Override
     public String toString() {
         return "Formateur{" +
-                "specialite='" + specialite + '\'' +
-                ", salaire=" + salaire +
+
                 ", id=" + id +
                 ", nom='" + nom + '\'' +
                 ", prenom='" + prenom + '\'' +
                 ", email='" + email + '\'' +
+                "specialite='" + specialite + '\'' +
+                ", salaire=" + salaire +
                 '}';
     }
     static void AjouterFormateur(){
