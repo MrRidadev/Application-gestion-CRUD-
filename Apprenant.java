@@ -1,10 +1,13 @@
 import java.util.Scanner;
-
+import java.util.ArrayList;
 public class Apprenant extends Personne{
     private double note;
     private int telephone;
 
-    public Apprenant(int id , String nom, String prenom, String email, double note,int telephone){
+    private static ArrayList<Apprenant> apprenants = new ArrayList<>();
+
+
+    public Apprenant( String nom, String prenom, String email, int telephone, double note){
         super(nom,prenom,email);
         this.note = note;
         this.telephone = telephone;
@@ -46,17 +49,24 @@ public class Apprenant extends Personne{
         String prenom= sc.nextLine();
         System.out.println("Enter email(@gmail.com) de apprenant : ");
         String email = sc.nextLine();
-        System.out.println("Enter specialite de apprenant : ");
-        String specialite = sc.nextLine();
         System.out.println("Enter telephone de apprenant : ");
         int telephone = sc.nextInt();
         System.out.println("Enter note de apprenant : ");
         double note = sc.nextDouble();
 
-}
-static void AffichierApprenant(){
 
 }
+
+    static void AffichierApprenant() {
+        if (apprenants.isEmpty()) {
+            System.out.println("Aucun apprenant à afficher !");
+        } else {
+            System.out.println("Liste des apprenants :");
+            for (int i = 0; i < apprenants.size(); i++) {
+                System.out.println((i + 1) + ". " + apprenants.get(i));
+            }
+        }
+    }
 static void ModifierApprenant(){
 
 }

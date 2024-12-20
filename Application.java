@@ -26,48 +26,63 @@ public class Application {
             System.out.print("Entrez votre choix: ");
             choixPrincipal = scanner.nextInt();
 
-            switch (choixPrincipal) {
-                case 1:
-                case 2:
-                case 3:
-                    System.out.println("Gestion choisie : " +
-                            (choixPrincipal == 1 ? "Apprenant" :
-                                    choixPrincipal == 2 ? "Formateur" : "Classe"));
-                    // Afficher les options
-                    menuOptions();
-                    System.out.print("Entrez votre choix dans le menu des options: ");
-                    int choixOption = scanner.nextInt();
+            if (choixPrincipal >= 1 && choixPrincipal <= 3) {
+                // Afficher les options secondaires
+                menuOptions();
+                System.out.print("Entrez votre choix dans le menu des options: ");
+                int choixOption = scanner.nextInt();
 
-                    switch (choixOption) {
-                        case 1:
-                            System.out.println("Ajouter Apprenant.");
-                            Apprenant.AjouterApprenant();
+                switch (choixPrincipal) {
+                    case 1: // Gestion Apprenant
+                        gererApprenant(choixOption);
+                        break;
 
-                            break;
-                        case 2:
-                            System.out.println("Modifier choisi.");
-                            break;
-                        case 3:
-                            System.out.println("Supprimer choisi.");
-                            break;
-                        case 4:
-                            System.out.println("Afficher choisi.");
-                            break;
-                        default:
-                            System.out.println("Option invalide !");
-                            break;
-                    }
-                    break;
+                    case 2: // Gestion Formateur
+                        System.out.println("Gestion des formateurs non implémentée.");
+                        break;
 
-                case 4:
-                    System.out.println("Au revoir !");
-                    break;
+                    case 3: // Gestion Classe
+                        System.out.println("Gestion des classes non implémentée.");
+                        break;
 
-                default:
-                    System.out.println("Choix invalide !");
+                    default:
+                        break;
+                }
+            } else if (choixPrincipal == 4) {
+                System.out.println("Au revoir !");
+            } else {
+                System.out.println("Choix invalide !");
             }
         } while (choixPrincipal != 4);
 
         scanner.close();
+    }
+
+    static void gererApprenant(int choixOption) {
+        switch (choixOption) {
+            case 1:
+                System.out.println("Ajouter Apprenant.");
+                Apprenant.AjouterApprenant();
+                break;
+
+            case 2:
+                System.out.println("Modifier Apprenant.");
+                Apprenant.ModifierApprenant();
+                break;
+
+            case 3:
+                System.out.println("Supprimer Apprenant.");
+                Apprenant.SuprimierApprenant();
+                break;
+
+            case 4:
+                System.out.println("Afficher Apprenant.");
+                Apprenant.AffichierApprenant();
+                break;
+
+            default:
+                System.out.println("Option invalide !");
+                break;
+        }
     }
 }

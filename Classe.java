@@ -25,4 +25,5 @@ public class Classe {
                 ", formateur='" + formateur + '\'' +
                 '}';
     }
+
 }
