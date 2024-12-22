@@ -2,31 +2,24 @@ import java.util.Scanner;
 import java.util.ArrayList;
 public class Apprenant extends Personne{
     private double note;
-    private static int id;
     private int telephone;
     Classe classe;
     static  Scanner sc = new Scanner(System.in);
     private static ArrayList<Apprenant> apprenants = new ArrayList<>();
 
-
-    public Apprenant(int id,String nom, String prenom, String email, double note, int telephone, Classe classe) {
-        super(id,nom, prenom, email);
+    public Apprenant(int id, String nom, String prenom, String email, double note, int telephone, Classe classe) {
+        super(id, nom, prenom, email);
         this.note = note;
         this.telephone = telephone;
         this.classe = classe;
     }
 
-    public Apprenant(int id,String nom, String prenom, String email, int telephone, double note, Classe classe){
-        super(id,nom,prenom,email);
-        this.note = note;
-        this.telephone = telephone;
-
-    }
-    public double getNote(){
+    public double getNote() {
         return note;
     }
-    public void setNote(double note){
-        this.note=note;
+
+    public void setNote(double note) {
+        this.note = note;
     }
 
     public int getTelephone() {
@@ -45,32 +38,21 @@ public class Apprenant extends Personne{
         this.classe = classe;
     }
 
-    public  int getId() {
-        return id;
-    }
-
-
-
-    public  void setId(int id) {
-        Apprenant.id = id;
-    }
-
     @Override
     public String toString() {
         return "Apprenant{" +
-                "id=" + id +
+                " id=" + id +
                 ", nom='" + nom + '\'' +
                 ", prenom='" + prenom + '\'' +
-                ", email='" + email +
+                ", email='" + email + '\'' +
                 ", note=" + note +
                 ", telephone=" + telephone +
                 ", classe=" + classe +
-                '\'' +
                 '}';
     }
 
     static void AjouterApprenant(){
-        id = apprenants.size()+1;
+        int id = apprenants.size()+1;
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter nom de apprenant : ");
         String nom = sc.nextLine();
@@ -92,6 +74,7 @@ public class Apprenant extends Personne{
         Apprenant ap = new Apprenant(id,nom,prenom,email,note,telephone,classe);
         apprenants.add(ap);
         System.out.println();
+
 
 
 

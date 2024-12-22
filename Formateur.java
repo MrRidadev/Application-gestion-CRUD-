@@ -4,7 +4,6 @@ import java.util.Scanner;
 public class Formateur extends Personne {
     private String specialite ;
     private double salaire;
-    private static int id;
     private static ArrayList<Formateur> formateurs = new ArrayList<>();
 public Formateur( int id , String nom, String prenom, String email, String specialite,double salaire){
     super(id,nom, prenom, email);
@@ -37,7 +36,7 @@ public Formateur( int id , String nom, String prenom, String email, String speci
                 '}';
     }
     static void AjouterFormateur(){
-        id = formateurs.size()+1;
+        int id = formateurs.size()+1;
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter nom de Formateur : ");
         String nom = sc.nextLine();
@@ -68,6 +67,48 @@ public Formateur( int id , String nom, String prenom, String email, String speci
 
             }
         }
+    }
+    public static Classe rechrcheClasse(String nom){
+        for (Classe classe : Classe.classes){
+            if (classe.getNom().equals(nom)){
+                return classe;
+            }
+        }
+        return null;
+    }
+    public static void ModifierFormateur() {
+    Scanner sc = new Scanner(System.in);
+
+        System.out.print("ID de l'apprenant à modifier: ");
+        int id = sc.nextInt();
+        sc.nextLine();
+        for (Formateur formateur : formateurs) {
+            if (formateur.getId() == id) {
+                System.out.print("Nouveau Nom: ");
+                formateur.setNom(sc.nextLine());
+                System.out.print("Nouveau Prénom: ");
+                formateur.setPrenom(sc.nextLine());
+                System.out.print("Nouvel Email: ");
+                formateur.setEmail(sc.nextLine());
+
+                System.out.print("Nouvelle Classe: ");
+                String classenom = sc.nextLine();
+                System.out.println("Enter Nouvelle salaire de Formateur : ");
+                double salaire = sc.nextDouble();
+                Classe classe = rechrcheClasse(classenom);
+//                if (classe == null) {
+//                    System.out.println("Classe introuvable !");
+//                    return;
+//                }
+                formateur.setClasse(classe);
+                System.out.println("Formateur modifié !");
+                return;
+            }
+        }
+        System.out.println("Formateur introuvable !");
+    }
+
+    private void setClasse(Classe classe) {
     }
 
 }

@@ -94,6 +94,7 @@ public class Application {
 
             case 2:
                 System.out.println("Modifier Formateur.");
+                Formateur.ModifierFormateur();
 
                 break;
 
