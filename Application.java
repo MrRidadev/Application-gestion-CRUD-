@@ -38,7 +38,7 @@ public class Application {
                         break;
 
                     case 2: // Gestion Formateur
-                        System.out.println("Gestion des formateurs non implémentée.");
+                        gererFormateur(choixOption);
                         break;
 
                     case 3: // Gestion Classe
@@ -85,4 +85,34 @@ public class Application {
                 break;
         }
     }
+    static void gererFormateur(int choixOption) {
+        switch (choixOption) {
+            case 1:
+                System.out.println("Ajouter Formateur.");
+                Formateur.AjouterFormateur();
+                break;
+
+            case 2:
+                System.out.println("Modifier Formateur.");
+
+                break;
+
+            case 3:
+                System.out.println("Supprimer Formateur.");
+
+                break;
+
+            case 4:
+                System.out.println("Afficher Formateur.");
+
+                break;
+
+            default:
+                System.out.println("Option invalide !");
+                break;
+        }
+    }
+
+
+
 }
