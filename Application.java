@@ -104,6 +104,7 @@ public class Application {
 
             case 4:
                 System.out.println("Afficher Formateur.");
+                Formateur.AffichierFormateur();
 
                 break;
 

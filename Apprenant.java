@@ -62,7 +62,7 @@ public class Apprenant extends Personne{
                 ", nom='" + nom + '\'' +
                 ", prenom='" + prenom + '\'' +
                 ", email='" + email +
-                "note=" + note +
+                ", note=" + note +
                 ", telephone=" + telephone +
                 ", classe=" + classe +
                 '\'' +
