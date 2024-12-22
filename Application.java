@@ -100,6 +100,7 @@ public class Application {
 
             case 3:
                 System.out.println("Supprimer Formateur.");
+                Formateur.SuprimierFormateur();
 
                 break;
 

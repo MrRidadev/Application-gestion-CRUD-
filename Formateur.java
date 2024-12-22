@@ -108,6 +108,26 @@ public Formateur( int id , String nom, String prenom, String email, String speci
         System.out.println("Formateur introuvable !");
     }
 
+
+    static void SuprimierFormateur(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("entre id pour supprimier Formateur !!");
+        int id = sc.nextInt();
+        sc.nextLine();
+        Formateur formateurSupprimier = null;
+        for (Formateur formateur : formateurs){
+            formateurSupprimier = formateur;
+            break;
+        }
+        if (formateurSupprimier == null){
+            System.out.println("no Formateur pour cette id "+id);
+            return;
+        }
+        formateurs.remove(formateurSupprimier);
+        System.out.println("Formateur supprimier avec succees");
+
+    }
+
     private void setClasse(Classe classe) {
     }
 
