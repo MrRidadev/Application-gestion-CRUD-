@@ -142,7 +142,7 @@ public static Apprenant rechercheId(int idrecherrche){
                 apprenant.setPrenom(sc.nextLine());
                 System.out.print("Nouvel Email: ");
                 apprenant.setEmail(sc.nextLine());
-                
+
                 System.out.print("Nouvelle Classe: ");
                 String classenom = sc.nextLine();
                 Classe classe = rechrcheClasse(classenom);
@@ -158,9 +158,23 @@ public static Apprenant rechercheId(int idrecherrche){
         System.out.println("Apprenant introuvable !");
     }
 
-static void SuprimierApprenant(){
+    static void SuprimierApprenant(){
+        System.out.println("entre id pour supprimier Apprenant !!");
+        int id = sc.nextInt();
+        sc.nextLine();
+        Apprenant apprenantSupprimier = null;
+        for (Apprenant apprenant : apprenants){
+            apprenantSupprimier = apprenant;
+            break;
+        }
+        if (apprenantSupprimier == null){
+            System.out.println("no apprenant pour cette id "+id);
+            return;
+        }
+        apprenants.remove(apprenantSupprimier);
+        System.out.println("Apprenant supprimier avec succees");
 
-}
+    }
 
 
 
